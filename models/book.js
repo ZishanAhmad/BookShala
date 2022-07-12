@@ -14,7 +14,7 @@ ImageSchema.virtual('thumbnail').get(function () {
     return this.url.replace('/upload', '/upload/w_200');
 });
 
-const HostelSchema = new Schema({
+const BookSchema = new Schema({
     title: String,
     images: [ImageSchema],
     price: Number,
@@ -34,7 +34,7 @@ const HostelSchema = new Schema({
 
 
 
-HostelSchema.post('findOneAndDelete', async function (doc) {
+BookSchema.post('findOneAndDelete', async function (doc) {
     if (doc) {
         await Review.deleteMany({
             _id: {
